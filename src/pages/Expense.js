@@ -4,6 +4,7 @@ import Modelpops from '../COMPONENTS/Modelpop'
 import AddButton from '../COMPONENTS/Addbutton'
 
 const Expense = () => {
+    const a = 9;
     const [expenseData, setExpenseData] = useState([
         {
             category: 'Groceries',
