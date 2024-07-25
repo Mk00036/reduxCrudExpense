@@ -48,7 +48,7 @@ const styles = {
 };
 
 const Listview = ({ expenseData, setExpenseData }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(1);
   const [getById, setGetById] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -107,7 +107,7 @@ const Listview = ({ expenseData, setExpenseData }) => {
 
   return (
     <>
-      <h1>Table View</h1>
+    
       <AddButton handelAddButton={handelAddButton} />
       <Search onSearch={handleSearchChange} />
       <button onClick={()=>setSearchQuery("")} >

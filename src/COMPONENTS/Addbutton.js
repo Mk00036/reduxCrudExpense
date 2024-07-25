@@ -20,6 +20,7 @@ const styles = {
     boxShadow: '0 2px 10px 0 rgba(0, 0, 0, 0.137)',
     position: 'relative',
     outline: 'none',
+    marginTop:"12px"
   },
   span: {
     letterSpacing: '.1rem',

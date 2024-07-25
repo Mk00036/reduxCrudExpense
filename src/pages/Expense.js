@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Listview from '../COMPONENTS/Listview'
-import Modelpops from '../COMPONENTS/Modelpop'
-import AddButton from '../COMPONENTS/Addbutton'
+import EnableColorOnDarkAppBar from '../COMPONENTS/navbar';
 
 const Expense = () => {
     const a = 9;
@@ -48,8 +47,8 @@ const Expense = () => {
     return (
 
         <>
-            <h1>main page</h1>
-           
+         
+            <EnableColorOnDarkAppBar/>
             <Listview expenseData={expenseData }  setExpenseData={setExpenseData}/>
            
         </>
