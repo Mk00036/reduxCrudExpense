@@ -44,7 +44,6 @@ const expenseSlice = createSlice({
         }
       },
       updateExpense: (state, action) => {
-        // action.payload should be an object with { index, updatedData }
         const { index, updatedData } = action.payload;
         if (index >= 0 && index < state.length) {
           state[index] = { ...state[index], ...updatedData };

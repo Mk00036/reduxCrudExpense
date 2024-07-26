@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addExpense } from "../redux/expenseSlice";
+import { addExpense , updateExpense} from "../redux/expenseSlice";
 
 const style = {
   position: "absolute",
@@ -35,6 +35,20 @@ const categories = [
   "Food",
   "Clothes",
 ];
+
+const cashOptions = [
+  "Cash",
+  "Credit Card",
+  "Debit Card",
+  "Bank Transfer",
+  "PayPal",
+  "Apple Pay",
+  "Google Pay",
+  "Venmo",
+  "Cheque",
+  "Others",
+];
+
 
 
 
@@ -92,9 +106,9 @@ export default function Modelpops({
     //       : item
     //   )
     // );
-    dispatch(edit, formData);
-    toast.success("Success! Updated");
-    handleClose(); // Close the modal after editing
+    dispatch(updateExpense({ index: edit, updatedData: formData }));
+  toast.success("Success! Updated");
+  handleClose(); // Close the modal after editing
   };
 
   const handleSubmit = () => {
@@ -185,15 +199,25 @@ export default function Modelpops({
             onChange={handleChange}
             required
           />
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Payment Method"
-            name="paymentMethod"
-            value={formData.paymentMethod}
-            onChange={handleChange}
-            required
-          />
+          
+          <FormControl fullWidth margin="normal">
+            <InputLabel id="paymentMethod-label">paymentMethod</InputLabel>
+            <Select
+              labelId="paymentMethod-label"
+              id="paymentMethod"
+              name="paymentMethod"
+              value={formData.paymentMethod}
+              onChange={handleChange}
+              required
+            >
+              {cashOptions.map((cat) => (
+                <MenuItem key={cat} value={cat}>
+                  {cat}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+   
           <Button
             type="submit"
             variant="contained"
